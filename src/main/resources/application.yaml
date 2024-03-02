@@ -1,0 +1,72 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  datasource:
+    #    url: jdbc:mysql://localhost:3306/webshop_projekt?serverTimezone=UTC&characterEncoding=utf8
+    #    url: jdbc:mysql://192.168.1.249:3306/webshop_projekt?serverTimezone=UTC&characterEncoding=utf8
+    url: ${MOBILE_DATABASE_URL:jdbc:mysql://localhost:3306/home_heroes?serverTimezone=UTC&characterEncoding=utf8}
+    username: root
+    password: test1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    generate-ddl: true
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: petmasters.webshop@gmail.com
+#    password: akvcrusgvlnppmkc
+#    # password: petmasters2024
+#    properties:
+#      mail:
+#        transport:
+#          protocol: smtp
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#          ssl:
+#            enable: false
+#  security:
+#    oauth2:
+#      resourceserver:
+#        opaque-token:
+#          introspection-uri: https://www.googleapis.com
+#          clientId: "226351047918-nu15cup2v96uqftnr6f9cn5m6rshh40d.apps.googleusercontent.com"
+#          clientSecret: "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"
+
+
+logging:
+  level:
+    com.progmasters: debug
+    org.springframework.web: info
+    org.hibernate: error
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+
+#cors-policies: http://localhost:4200, http://127.0.0.1:4200
+#cors-policies: http://192.168.1.249:4200, http://127.0.0.1:4200
+cors-policies: ${MOBILE_CORS_POLICY:#{'http://localhost:4200, http://127.0.0.1:4200'}}
+
+#base-url: http://localhost:8080
+#base-url: http://192.168.1.249:8080
+base-url: ${MOBILE_BASE_URL:#{'http://localhost:8080'}}
+
+#base-url-frontend: http://localhost:4200
+#base-url-frontend: http://192.168.1.249:4200
+base-url-frontend: ${MOBILE_BASE_UL_FRONTEND:#{'http://localhost:4200'}}
+
+#recaptcha:
+#  secret_key: 6LcOpl8pAAAAANUq_AsyL_AglDgBRfXWCqhpkIuU
