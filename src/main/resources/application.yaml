@@ -22,29 +22,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
-#  mail:
-#    host: smtp.gmail.com
-#    port: 587
-#    username: petmasters.webshop@gmail.com
-#    password: akvcrusgvlnppmkc
-#    # password: petmasters2024
-#    properties:
-#      mail:
-#        transport:
-#          protocol: smtp
-#        smtp:
-#          auth: true
-#          starttls:
-#            enable: true
-#          ssl:
-#            enable: false
-#  security:
-#    oauth2:
-#      resourceserver:
-#        opaque-token:
-#          introspection-uri: https://www.googleapis.com
-#          clientId: "226351047918-nu15cup2v96uqftnr6f9cn5m6rshh40d.apps.googleusercontent.com"
-#          clientSecret: "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"
+
 
 
 logging:
@@ -68,5 +46,3 @@ base-url: ${MOBILE_BASE_URL:#{'http://localhost:8080'}}
 #base-url-frontend: http://192.168.1.249:4200
 base-url-frontend: ${MOBILE_BASE_UL_FRONTEND:#{'http://localhost:4200'}}
 
-#recaptcha:
-#  secret_key: 6LcOpl8pAAAAANUq_AsyL_AglDgBRfXWCqhpkIuU
